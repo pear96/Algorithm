@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+sys.stdin = open('input.txt')
 
 N = int(sys.stdin.readline())
 painting = [list(sys.stdin.readline().rstrip()) for _ in range(N)]  # 그림을 2차원 배열로 받아온다.
