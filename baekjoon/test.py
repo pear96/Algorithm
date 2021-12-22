@@ -1,14 +1,26 @@
 import sys
 
-N = int(sys.stdin.readline().rstrip())
-numbers = list(map(int, sys.stdin.readline().split()))
-answers = [-1] * N
-stack = []
+# a = 1, b = 2, c = 4
+# -50 ~ 50은 101개
+# 7 * 101
 
-for number in range(N):
-    while stack and numbers[stack[-1]] < numbers[i]:
-        popped = stack.pop()
-        answers[popped] = numbers[i]
-    stack.append(i)
+DP = [1] * (101*101*101)
 
-print(' '.join(map(str, answers)))
+for c in range(1, 51):
+    for b in range(1, 51):
+        for a in range(1, 51):
+            if a > 20 or b > 20 or c > 20:
+                DP[a + 2 * b + 4 * c] = DP[140]
+                continue
+            if a < b < c:
+                DP[a + 2 * b + 4 * c] = DP[a + 2 * b + 4 * (c - 1)] + DP[a + 2 * (b - 1) + 4 * (c - 1)] - DP[
+                    a + 2 * (b - 1) + 4 * c]
+                continue
+            DP[a + 2 * b + 4 * c] = DP[(a - 1) + 2 * b + 4 * c] + DP[(a - 1) + 2 * (b - 1) + 4 * c] \
+                                    + DP[(a - 1) + 2 * b + 4 * (c - 1)] - DP[(a - 1) + 2 * (b - 1) + 4 * (c - 1)]
+
+
+print(DP[7])
+print(DP[14])
+print(DP[42])
+print(DP[350])
