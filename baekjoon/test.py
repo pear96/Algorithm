@@ -1,8 +1,5 @@
-import sys
-A, B = map(int, sys.stdin.readline().split())
+test_list = [[2,1],[1,1],[2,4],[1,3],[1,2]]
 
-print(A+B)
-print(A-B)
-print(A*B)
-print(A//B)
-print(A%B)
+test_list.sort()
+
+print(test_list)
