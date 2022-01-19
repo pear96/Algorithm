@@ -1,3 +1,11 @@
+"""
+짧은 풀이
+if x:
+    hq.heappush(min_heap, (abs(x), x))
+else:
+    print(hq.heappop(min_heap)[1] if min_heap else 0)
+
+"""
 import sys
 import heapq
 
@@ -21,3 +29,4 @@ for _ in range(N):
             heapq.heappush(heap, (-num, -1))
         else:
             heapq.heappush(heap, (num, 1))
+
